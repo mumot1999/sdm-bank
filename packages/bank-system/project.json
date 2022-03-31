@@ -1,0 +1,32 @@
+{
+  "root": "packages/bank-system",
+  "sourceRoot": "packages/bank-system/src",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/bank-system",
+        "main": "packages/bank-system/src/index.ts",
+        "tsConfig": "packages/bank-system/tsconfig.lib.json",
+        "assets": ["packages/bank-system/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/bank-system/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/bank-system"],
+      "options": {
+        "jestConfig": "packages/bank-system/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

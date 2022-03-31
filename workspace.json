@@ -1,4 +1,6 @@
 {
   "version": 2,
-  "projects": {}
+  "projects": {
+    "bank-system": "packages/bank-system"
+  }
 }

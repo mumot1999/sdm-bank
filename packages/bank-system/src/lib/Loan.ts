@@ -1,9 +1,11 @@
 import { Account } from './Account';
+import { InterestRate } from './InterestRate';
 import { IProduct } from './IProduct';
 import { Operation } from './Operation';
 import { Transaction } from './Transaction';
 
 export class Loan implements IProduct {
+  private _interestRate: InterestRate;
   public get dateOfOpenning(): Date {
     return this._dateOfOpenning;
   }
@@ -28,8 +30,15 @@ export class Loan implements IProduct {
     private _id: string,
     private _balance: number,
     private _dateOfOpenning: Date,
-    private _account: Account
-  ) {}
+    private _account: Account,
+    interestRateBuilder: (selfw: Loan) => InterestRate
+  ) {
+    this._interestRate = interestRateBuilder(this);
+  }
+
+  getAmountToPayoff() {
+    return this._interestRate.calculate();
+  }
 
   payoff(amount: number) {
     this._balance -= amount;

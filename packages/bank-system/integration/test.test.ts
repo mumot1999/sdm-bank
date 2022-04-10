@@ -14,8 +14,7 @@ describe('Bank system - loans', () => {
   describe('payoff', () => {
     it('account gets loan for 10 and payoffs 20', () => {
       const bank = new Bank('bank', '1');
-      const account1 = new Account('1', 1000, new Date());
-      bank.addAccount(account1);
+      const account1 = bank.createAccount(1000);
       const loan = bank.createLoan(10, account1, { calculate: () => 20 });
 
       account1.payOffLoan(loan);
@@ -25,11 +24,10 @@ describe('Bank system - loans', () => {
 
     it('bank creates loan which payoff amount is (loan.balance + 2)', () => {
       const bank = new Bank('bank', '1', {
-        loan: (account, loan) => ({ calculate: () => loan.balance + 2 }),
+        loan: (_, loan) => ({ calculate: () => loan.balance + 2 }),
       });
-      const account1 = new Account('1', 1000, new Date());
-      bank.addAccount(account1);
-      const loan = bank.createLoan(10, account1);
+      const account = bank.createAccount(1000);
+      const loan = bank.createLoan(10, account);
 
       expect(loan.getAmountToPayoff()).toBe(12);
     });

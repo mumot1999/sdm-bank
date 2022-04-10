@@ -61,7 +61,8 @@ export class Bank {
       loanBalance,
       new Date(),
       account,
-      (loan) => interestRate ?? this.defaultInterestRatesBuilders.loan(account, loan)
+      (loan) =>
+        interestRate ?? this.defaultInterestRatesBuilders.loan(account, loan)
     );
 
     this.loans.push(loan);
@@ -69,5 +70,16 @@ export class Bank {
     account.receive(loanBalance);
 
     return loan;
+  }
+
+  createAccount(balance: number) {
+    const account = new Account(
+      'a' + new Date().getTime() + Math.random(),
+      balance,
+      new Date()
+    );
+
+    this.accounts.push(account);
+    return account;
   }
 }

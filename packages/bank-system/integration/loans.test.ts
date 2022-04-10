@@ -24,12 +24,26 @@ describe('Bank system - loans', () => {
 
     it('bank creates loan which payoff amount is (loan.balance + 2)', () => {
       const bank = new Bank('bank', '1', {
-        loan: (_, loan) => ({ calculate: () => loan.balance + 2 }),
+        loan: (_, loan) => ({ calculate: () => loan.openBalance + 2 }),
       });
       const account = bank.createAccount(1000);
       const loan = bank.createLoan(10, account);
 
       expect(loan.getAmountToPayoff()).toBe(12);
+    });
+
+    it('should be able to payoff the loan in parts', () => {
+      const bank = new Bank('bank', '1', {
+        loan: (_, loan) => ({ calculate: () => loan.openBalance + 2 }),
+      });
+      const account = bank.createAccount(1000);
+      const loan = bank.createLoan(10, account);
+
+      account.payOffLoan(loan, 5);
+
+      expect(account.balance).toBe(1005);
+      // (10 + 2) - 5 = 7
+      expect(loan.getAmountToPayoff()).toBe(7);
     });
   });
 });

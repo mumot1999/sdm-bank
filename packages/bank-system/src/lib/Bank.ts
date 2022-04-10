@@ -68,6 +68,7 @@ export class Bank {
     this.loans.push(loan);
     account.addLoan(loan);
     account.receive(loanBalance);
+    loan.payoff(loanBalance)
 
     return loan;
   }

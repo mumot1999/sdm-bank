@@ -5,8 +5,10 @@ import { Operation } from './Operation';
 import { Transaction } from './Transaction';
 
 export class Account implements IProduct {
-  payOffLoan(loan: Loan) {
-    this._balance -= loan.getAmountToPayoff();
+  payOffLoan(loan: Loan, amount?: number) {
+    const payoffAmount = amount ?? loan.getAmountToPayoff();
+    this._balance -= payoffAmount;
+    loan.receive(payoffAmount)
   }
 
   addDeposit(deposit: Deposit) {

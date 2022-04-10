@@ -6,6 +6,7 @@ import { Transaction } from './Transaction';
 
 export class Loan implements IProduct {
   private _interestRate: InterestRate;
+  private _balance: number;
   public get dateOfOpenning(): Date {
     return this._dateOfOpenning;
   }
@@ -28,19 +29,24 @@ export class Loan implements IProduct {
 
   constructor(
     private _id: string,
-    private _balance: number,
+    readonly openBalance: number,
     private _dateOfOpenning: Date,
     private _account: Account,
     interestRateBuilder: (selfw: Loan) => InterestRate
   ) {
     this._interestRate = interestRateBuilder(this);
+    this._balance = openBalance;
   }
 
   getAmountToPayoff() {
-    return this._interestRate.calculate();
+    return this._interestRate.calculate() - this.balance;
   }
 
   payoff(amount: number) {
     this._balance -= amount;
+  }
+
+  receive(amount: number) {
+    this._balance += amount;
   }
 }

@@ -1,0 +1,41 @@
+@startuml
+left to right direction
+
+skinparam packageStyle rectangle
+actor payer
+actor saver
+actor bank
+
+rectangle "User" {
+usecase "UC1: withdraw money at ATM" as UC1
+usecase "UC2: pay via credit card" as UC2
+usecase "UC3: get loan" as UC3
+usecase "UC4: receive money" as UC4
+usecase "UC5: create a deposit" as UC5
+}
+
+rectangle "Bank" {
+usecase "create loan" as BC1
+usecase "make transfer" as BC2
+usecase "end the deposit" as BC3
+}
+
+UC3 ..> BC1 : include
+
+BC3 ..> UC4 : extends
+BC2 ..> UC4 : extends
+
+payer --> UC1
+payer --> UC2
+payer --> UC3
+
+saver --> UC4
+saver --> UC5
+
+
+BC1 <-- bank
+BC2 <-- bank
+BC3 <-- bank
+
+
+@enduml

@@ -7,6 +7,8 @@ import { Transaction } from './Transaction';
 export class Loan implements IProduct {
   private _interestRate: InterestRate;
   private _balance: number;
+  private _operations: Operation[];
+  private _transactions: Transaction[];
   public get dateOfOpenning(): Date {
     return this._dateOfOpenning;
   }
@@ -20,11 +22,11 @@ export class Loan implements IProduct {
   }
 
   public get operations(): Operation[] {
-    return [];
+    return [...this._operations];
   }
 
   public get transactions(): Transaction[] {
-    return [];
+    return [...this._transactions];
   }
 
   constructor(
@@ -36,6 +38,8 @@ export class Loan implements IProduct {
   ) {
     this._interestRate = interestRateBuilder(this);
     this._balance = openBalance;
+    this._operations = []
+    this._transactions = []
   }
 
   getAmountToPayoff() {
@@ -44,6 +48,8 @@ export class Loan implements IProduct {
 
   payoff(amount: number) {
     this._balance -= amount;
+    this._operations.push(new Operation(`Payoff ${amount}`))
+    this._transactions.push(new Transaction("send", new Date(), `payoff ${amount}`))
   }
 
   receive(amount: number) {

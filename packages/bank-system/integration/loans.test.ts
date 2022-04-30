@@ -46,4 +46,26 @@ describe('Bank system - loans', () => {
       expect(loan.getAmountToPayoff()).toBe(7);
     });
   });
+
+  describe('operation history', () => {
+    test('should store operation history', () => {
+      const bank = new Bank('bank', '1', {
+        loan: (_, loan) => ({ calculate: () => loan.openBalance + 2 }),
+      });
+      const account = bank.createAccount(1000);
+      const loan = bank.createLoan(10, account);
+
+      expect(loan.operations.length).toBe(1)
+    });
+
+    test('should store transactions history', () => {
+      const bank = new Bank('bank', '1', {
+        loan: (_, loan) => ({ calculate: () => loan.openBalance + 2 }),
+      });
+      const account = bank.createAccount(1000);
+      const loan = bank.createLoan(10, account);
+
+      expect(loan.transactions.length).toBe(1)
+    });
+  });
 });

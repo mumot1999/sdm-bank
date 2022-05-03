@@ -1,0 +1,22 @@
+{
+  "root": "packages/bank-system-acceptance-tests",
+  "sourceRoot": "packages/bank-system-acceptance-tests/src",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/bank-system-acceptance-tests/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/bank-system-acceptance-tests"],
+      "options": {
+        "jestConfig": "packages/bank-system-acceptance-tests/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

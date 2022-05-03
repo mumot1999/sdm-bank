@@ -15,7 +15,10 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@sdm-bank/bank-system": ["packages/bank-system/src/index.ts"]
+      "@sdm-bank/bank-system": ["packages/bank-system/src/index.ts"],
+      "@sdm-bank/bank-system-acceptance-tests": [
+        "packages/bank-system-acceptance-tests/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]

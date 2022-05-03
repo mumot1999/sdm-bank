@@ -1,6 +1,7 @@
 {
   "version": 2,
   "projects": {
-    "bank-system": "packages/bank-system"
+    "bank-system": "packages/bank-system",
+    "bank-system-acceptance-tests": "packages/bank-system-acceptance-tests"
   }
 }

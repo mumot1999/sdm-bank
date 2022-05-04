@@ -10,8 +10,13 @@ export class Account implements IProduct {
     this._balance -= payoffAmount;
     loan.receive(payoffAmount)
   }
-
-  addDeposit(deposit: Deposit) {
+  receiveDeposit(deposit : Deposit, interest: number):number {
+    const aux = deposit.balance * interest;
+    this._balance += aux;
+    return this._balance;
+  }
+  
+  addDeposit(deposit: Deposit): void {
     this._deposits.push(deposit);
   }
   addLoan(loan: Loan) {

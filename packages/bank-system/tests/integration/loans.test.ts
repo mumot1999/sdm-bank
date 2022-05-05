@@ -1,5 +1,5 @@
-import { Account } from '../src/lib/Account';
-import { Bank } from '../src/lib/Bank';
+import { Account } from '../../src/lib/Account';
+import { Bank } from '../../src/lib/Bank';
 
 describe('Bank system - loans', () => {
   it('bank should transfer funds to account when the loan is created', () => {

@@ -1,5 +1,5 @@
-import { Account } from '../src/lib/Account';
-import { Bank } from '../src/lib/Bank';
+import { Account } from '../../src/lib/Account';
+import { Bank } from '../../src/lib/Bank';
 
 describe('Bank system - loans', () => {
   it('bank should transfer funds to account when the loan is created', () => {
@@ -44,6 +44,28 @@ describe('Bank system - loans', () => {
       expect(account.balance).toBe(1005);
       // (10 + 2) - 5 = 7
       expect(loan.getAmountToPayoff()).toBe(7);
+    });
+  });
+
+  describe('operation history', () => {
+    test('should store operation history', () => {
+      const bank = new Bank('bank', '1', {
+        loan: (_, loan) => ({ calculate: () => loan.openBalance + 2 }),
+      });
+      const account = bank.createAccount(1000);
+      const loan = bank.createLoan(10, account);
+
+      expect(loan.operations.length).toBe(1)
+    });
+
+    test('should store transactions history', () => {
+      const bank = new Bank('bank', '1', {
+        loan: (_, loan) => ({ calculate: () => loan.openBalance + 2 }),
+      });
+      const account = bank.createAccount(1000);
+      const loan = bank.createLoan(10, account);
+
+      expect(loan.transactions.length).toBe(1)
     });
   });
 });

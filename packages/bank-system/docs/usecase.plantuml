@@ -1,43 +1,98 @@
 @startuml
 left to right direction
 
+!$a  = 0
+
+!procedure $uc($name, $desc)
+!$a = $a + 1
+usecase $name as "UC $a: $desc"
+!endprocedure
+
 skinparam packageStyle rectangle
-actor payer
-actor saver
-actor bank
-actor receiver
+actor BANK as bank
+actor ACCOUNT as account
+actor LOAN as loan
+actor DEPOSIT as deposit 
+actor PRODUCT as product
+
+$uc(create_account, "Create account")
+$uc(create_deposit, "Create deposit")
+$uc(create_loan, "Create loan")
 
 
-rectangle "Bank System" {
-usecase "pay via credit card" as UC2
-usecase "get loan" as UC3
-usecase "receive money" as UC4
-usecase "create a deposit" as UC5
-usecase "send money" as UC6 
-
-usecase "make transfer" as BC2
-usecase "endup the deposit" as BC3
-usecase "open loan" as BC1
+rectangle "Account responsibility" {
+ $uc(payoff_loan, "Payoff loan")
+ $uc(close_deposit, "Close deposit")
+ $uc(get_loans, "Get loans")
+ $uc(get_deposits, "Get deposits")
 }
 
+rectangle "Loan responsibility" {
+$uc(loan_init, "Withdraw money at start")
+$uc(loan_end, "End when is fully paid off")
+}
+
+rectangle "Deposit responsibility" {
+$uc(deposit_end, "Withdraw money")
+}
+
+$uc(get_interest_rates, "Get interest rates")
+
+rectangle "Product responsibility" {
+$uc(receive_money, "Receive money")
+$uc(send_money, "Send money")
+$uc(get_transaction_history, "Get transactions history")
+$uc(get_operation_history, "Get operation history")
+}
+
+$uc(log_operation, "Log operations")
+$uc(log_transaction, "Log transactions")
 
 
-payer --> UC1
-payer --> UC2
-payer --> UC3
-payer --> UC6
+bank --> create_account
+bank -- create_loan
+bank -- create_deposit
 
-receiver --> UC4
-saver --> UC5
-
-UC4 <.. BC3 : extends
-UC4 <.. BC2 : extends
-UC3 ..> BC2 : include
-UC4 <.. BC1 : extends
-
-BC1 <-- bank
-BC2 <-- bank
-BC3 <-- bank
+loan ----> product
+account ----> product
+deposit ----> product
 
 
+create_account --> account
+create_deposit --> deposit
+create_loan --> loan
+
+product --> send_money
+product --> receive_money
+product --> get_transaction_history
+product --> get_operation_history
+
+send_money .> log_transaction : include
+send_money .> log_operation : include
+
+receive_money ...> log_transaction : include
+receive_money ...> log_operation : include
+
+account -- create_loan
+account -- create_deposit
+account --> close_deposit 
+account --> payoff_loan
+account --> get_deposits
+account --> get_loans
+
+get_loans --> loan
+get_deposits --> deposit
+close_deposit --> deposit
+payoff_loan --> loan
+
+loan --> loan_init
+loan --> loan_end
+loan_end ..> receive_money : include
+loan_init ..> send_money : include
+
+deposit --> deposit_end
+
+deposit_end ..> send_money : include
+deposit_end ..> get_interest_rates : include
+loan_end ..> get_interest_rates : include
 @enduml

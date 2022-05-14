@@ -2,6 +2,7 @@ import { Deposit } from './Deposit';
 import { Loan } from './Loan';
 import { Account } from './Account';
 import { InterestRate } from './InterestRate';
+import { Mediator } from './InterbankPaymentAgency';
 
 export type DefaultInterestRatesBuilders = {
   loan: (account: Account, loan: Loan) => InterestRate;
@@ -10,6 +11,7 @@ export type DefaultInterestRatesBuilders = {
 };
 
 export class Bank {
+  protected mediator: Mediator ;
   private accounts: Account[] = [];
   private loans: Loan[] = [];
   private deposits: Deposit[] = [];
@@ -24,9 +26,11 @@ export class Bank {
   }
 
   constructor(
+    
     private _name: string,
     private _id: string,
-    defaults?: Partial<DefaultInterestRatesBuilders>
+    defaults?: Partial<DefaultInterestRatesBuilders>,
+    mediator?: Mediator
   ) {
     this.defaultInterestRatesBuilders = {
       account:
@@ -40,6 +44,12 @@ export class Bank {
         defaults?.deposit ??
         ((a, d) => ({ calculate: () => d.balance * 1.05 })),
     };
+    this.mediator = mediator!;
+  }
+
+
+  public setMediator(mediator: Mediator): void {
+    this.mediator = mediator;
   }
 
   public addAccount(account: Account) {

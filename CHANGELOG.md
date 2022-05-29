@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.0](https://github.com/mumot1999/sdm-bank/compare/v0.2.0...v0.3.0) (2022-05-29)
+
+
+### Features
+
+* Debit Account Decorator ([e57e02c](https://github.com/mumot1999/sdm-bank/commit/e57e02ce013ac9eb035539cbc77e1ea9b3aa6d4d))
+
 ## [0.2.0](https://github.com/mumot1999/sdm-bank/compare/v0.1.0...v0.2.0) (2022-05-28)
 
 

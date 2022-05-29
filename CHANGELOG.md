@@ -1,5 +1,29 @@
 # Changelog
 
+## [2.0.0](https://github.com/mumot1999/sdm-bank/compare/v1.0.0...v2.0.0) (2022-05-29)
+
+
+### ⚠ BREAKING CHANGES
+
+* **account:** add id property
+
+### Features
+
+* **account:** add id property ([f3e222e](https://github.com/mumot1999/sdm-bank/commit/f3e222ec9b676dabed5f1fdbfd4cb3a8de6aa635))
+* add Command interface ([f2d96bb](https://github.com/mumot1999/sdm-bank/commit/f2d96bb46ba2487aa91b06155fddc823ce27ea69))
+* **transfer:** add transfer command ([73344cf](https://github.com/mumot1999/sdm-bank/commit/73344cf67768f3354e9f71c8fa1dd4adb1d234fe))
+* **transfer:** add transfer invoker ([c725ecd](https://github.com/mumot1999/sdm-bank/commit/c725ecd8241c08428f2630db4dbdb616bd2727f6))
+
+
+### Tests
+
+* **transfer:** add test for transfering ([2750dcd](https://github.com/mumot1999/sdm-bank/commit/2750dcdc387cc62383885f6bb227543087ab0321))
+
+
+### Miscellaneous
+
+* add release-please commit tags ([b307f1c](https://github.com/mumot1999/sdm-bank/commit/b307f1c910e931ed52e65fb64c6ed5a84a1e4a44))
+
 ## [1.0.0](https://github.com/mumot1999/sdm-bank/compare/v0.2.0...v1.0.0) (2022-05-29)
 
 

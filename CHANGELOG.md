@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.0.0](https://github.com/mumot1999/sdm-bank/compare/v0.2.0...v1.0.0) (2022-05-29)
+
+
+### ⚠ BREAKING CHANGES
+
+* **debit-account:** add debit account decorator class
+
+### Features
+
+* **debit-account:** add debit account decorator class ([ec2f6bf](https://github.com/mumot1999/sdm-bank/commit/ec2f6bfc68f31b11c3ed4f5db75976a2730de641))
+
 ## [0.2.0](https://github.com/mumot1999/sdm-bank/compare/v0.1.0...v0.2.0) (2022-05-28)
 
 

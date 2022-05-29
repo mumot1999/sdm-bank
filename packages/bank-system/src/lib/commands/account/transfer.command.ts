@@ -1,4 +1,3 @@
-import { Account } from '../../domain/account';
 import { AccountInterface } from '../../interfaces/account.interface';
 import { Command } from '../command';
 export class TransferCommand implements Command {

@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.1.0](https://github.com/mumot1999/sdm-bank/compare/v2.0.0...v2.1.0) (2022-05-29)
+
+
+### Features
+
+* add packages ([d3738f1](https://github.com/mumot1999/sdm-bank/commit/d3738f175465078943884547090ae4a0cddb5833))
+* new release-testing file ([cd64a24](https://github.com/mumot1999/sdm-bank/commit/cd64a246dd7a7884f985dc44244cd381fa99b4bb))
+
 ## [2.0.0](https://github.com/mumot1999/sdm-bank/compare/v1.0.0...v2.0.0) (2022-05-29)
 
 

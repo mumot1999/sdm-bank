@@ -1,7 +1,11 @@
+import { Identificable } from './interfaces/identificable.interface';
+import { AccountInterface } from './interfaces/account.interface';
+import { TransferInvoker } from './commands/account/transfer.invoker';
 import { Deposit } from './Deposit';
 import { Loan } from './Loan';
-import { Account } from './Account';
 import { InterestRate } from './InterestRate';
+import { TransferCommand } from './commands/account/transfer.command';
+import { Account } from './domain/account';
 
 export type DefaultInterestRatesBuilders = {
   loan: (account: Account, loan: Loan) => InterestRate;
@@ -10,10 +14,17 @@ export type DefaultInterestRatesBuilders = {
 };
 
 export class Bank {
-  private accounts: Account[] = [];
+  transferFunds(accountA: string, accountB: string, amount: number) {
+    this.transferInvoker.dispatch(
+      new TransferCommand(accountA, accountB, amount)
+    );
+  }
+
+  private accounts: Identificable<AccountInterface>[] = [];
   private loans: Loan[] = [];
   private deposits: Deposit[] = [];
   private defaultInterestRatesBuilders: DefaultInterestRatesBuilders;
+  private transferInvoker!: TransferInvoker;
 
   public get id(): string {
     return this._id;
@@ -32,7 +43,7 @@ export class Bank {
       account:
         defaults?.account ??
         ((a) => ({
-          calculate: () => a.balance,
+          calculate: () => a.getBalance(),
         })),
       loan:
         defaults?.loan ?? ((a, l) => ({ calculate: () => l.balance * 1.05 })),
@@ -40,47 +51,17 @@ export class Bank {
         defaults?.deposit ??
         ((a, d) => ({ calculate: () => d.balance * 1.05 })),
     };
+    this.transferInvoker = new TransferInvoker(this.accounts);
   }
 
-  public addAccount(account: Account) {
+  public addAccount(account: Identificable<AccountInterface>) {
     this.accounts.push(account);
-  }
-
-  public createDeposit(deposit: Deposit, account: Account) {
-    this.deposits.push(deposit);
-    account.addDeposit(deposit);
-  }
-
-  public createLoan(
-    loanBalance: number,
-    account: Account,
-    interestRate?: InterestRate
-  ) {
-    const loan = new Loan(
-      (this.loans.length + 1).toString(),
-      loanBalance,
-      new Date(),
-      account,
-      (loan) =>
-        interestRate ?? this.defaultInterestRatesBuilders.loan(account, loan)
-    );
-
-    this.loans.push(loan);
-    account.addLoan(loan);
-    account.receive(loanBalance);
-    loan.payoff(loanBalance)
-
-    return loan;
   }
 
   createAccount(balance: number) {
-    const account = new Account(
-      'a' + new Date().getTime() + Math.random(),
-      balance,
-      new Date()
-    );
+    const account = new Account(balance);
 
-    this.accounts.push(account);
+    this.accounts.push({ ...account, id: 'a' + Math.random() });
     return account;
   }
 }

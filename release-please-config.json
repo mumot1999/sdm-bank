@@ -7,7 +7,8 @@
       "bumpMinorPreMajor": false,
       "bumpPatchForMinorPreMajor": false,
       "changelogPath": "CHANGELOG.md",
-      "versioning": "default"
+      "versioning": "default",
+      "changelog-sections": "feat,fix,chore,test"
     },
     "packages/bank-system-acceptance-tests": {
       "releaseType": "node",

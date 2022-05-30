@@ -8,6 +8,10 @@ export class DebitAccount implements AccountInterface {
     private maximumDebit: number
   ) {}
 
+  get id() {
+    return this.account.id;
+  }
+
   private getDebitLeft = () => this.maximumDebit - this.debit;
 
   addMoney = (amount: number) => {
@@ -18,16 +22,16 @@ export class DebitAccount implements AccountInterface {
 
   subMoney = (amount: number) => {
     const maximumAmount = this.account.getBalance();
-    const debitLeft = this.getDebitLeft()
+    const debitLeft = this.getDebitLeft();
 
     const getAmountFromHigherAccount = Math.min(maximumAmount, amount);
 
     this.account.subMoney(getAmountFromHigherAccount);
 
-    const addDebit = amount - getAmountFromHigherAccount
+    const addDebit = amount - getAmountFromHigherAccount;
 
-    if(debitLeft < addDebit){
-      throw "Maximum debit reached"
+    if (debitLeft < addDebit) {
+      throw 'Maximum debit reached';
     }
 
     this.debit += addDebit;

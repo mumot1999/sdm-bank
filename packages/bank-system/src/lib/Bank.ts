@@ -14,10 +14,19 @@ export type DefaultInterestRatesBuilders = {
 };
 
 export class Bank {
-  transferFunds(accountA: string, accountB: string, amount: number) {
-    this.transferInvoker.dispatch(
-      new TransferCommand(accountA, accountB, amount)
-    );
+  transferFunds(
+    accountNumberA: string,
+    accountNumberB: string,
+    amount: number
+  ) {
+    const accountA = this.accounts.find((x) => x.id === accountNumberA);
+    const accountB = this.accounts.find((x) => x.id === accountNumberB);
+
+    if (accountA === undefined || accountB === undefined) {
+      throw "Can't find account";
+    }
+
+    new TransferCommand(accountA, accountB, amount).execute();
   }
 
   private accounts: Identificable<AccountInterface>[] = [];
@@ -51,7 +60,7 @@ export class Bank {
         defaults?.deposit ??
         ((a, d) => ({ calculate: () => d.balance * 1.05 })),
     };
-    this.transferInvoker = new TransferInvoker(this.accounts);
+    this.transferInvoker = new TransferInvoker();
   }
 
   public addAccount(account: Identificable<AccountInterface>) {

@@ -1,0 +1,1 @@
+export type Identificable<T> = T & {id: string}

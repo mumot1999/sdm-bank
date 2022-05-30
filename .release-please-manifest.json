@@ -1,5 +1,5 @@
 {
   ".": "2.0.0",
-  "packages/bank-system": "2.0.0",
+  "packages/bank-system": "2.0.1",
   "packages/bank-system-acceptance-tests": "1.1.0"
 }

@@ -1,5 +1,12 @@
 # Changelog
 
+### [2.0.1](https://github.com/mumot1999/sdm-bank/compare/bank-system-v2.0.0...bank-system-v2.0.1) (2022-05-30)
+
+
+### Bug Fixes
+
+* **Bank:** create account ([fd8a230](https://github.com/mumot1999/sdm-bank/commit/fd8a23012a8712e97edc79d1ea8bbf2bc56c7847))
+
 ## [2.0.0](https://github.com/mumot1999/sdm-bank/compare/bank-system-v1.0.0...bank-system-v2.0.0) (2022-05-30)
 
 

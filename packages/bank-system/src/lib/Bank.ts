@@ -59,9 +59,10 @@ export class Bank {
   }
 
   createAccount(balance: number) {
-    const account = new Account(balance);
+    const id = 'a' + Math.random();
+    const account = new Account(balance, id);
 
-    this.accounts.push({ ...account, id: 'a' + Math.random() });
+    this.accounts.push(account);
     return account;
   }
 }

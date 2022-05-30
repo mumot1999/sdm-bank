@@ -1,8 +1,14 @@
 import { AccountInterface } from '../../interfaces/account.interface';
+import { Identificable } from '../../interfaces/identificable.interface';
 import { Command } from '../command';
+
+export type TransferAccount = Identificable<{
+  addMoney: (amount: number) => void;
+  subMoney: (amount: number) => void;
+}>;
 export class TransferCommand implements Command {
-  private accountA: AccountInterface | undefined;
-  private accountB: AccountInterface | undefined;
+  private accountA: TransferAccount | undefined;
+  private accountB: TransferAccount | undefined;
 
   constructor(
     private idA: string,
@@ -10,7 +16,7 @@ export class TransferCommand implements Command {
     private amount: number
   ) {}
 
-  configure(accounts: AccountInterface[]) {
+  configure(accounts: TransferAccount[]) {
     this.accountA = accounts.find((account) => account.id === this.idA);
     this.accountB = accounts.find((account) => account.id === this.idB);
   }

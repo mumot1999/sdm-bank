@@ -1,8 +1,8 @@
 on:
   push:
     branches:
-      - release-testing
-name: release-please-testing
+      - master
+name: release-please-master
 jobs:
   release-please:
     runs-on: ubuntu-latest
@@ -11,7 +11,7 @@ jobs:
         with:
           release-type: node
           package-name: release-please-action
-          default-branch: release-testing
+          default-branch: master
           changelog-types: '[{"type":"feat","section":"Features","hidden":false},{"type":"fix","section":"Bug Fixes","hidden":false},{"type":"chore","section":"Miscellaneous","hidden":false}, {"type":"test","section":"Tests","hidden":false}]'
           command: manifest
           monorepo-tags: true

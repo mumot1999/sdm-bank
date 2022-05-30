@@ -1,6 +1,6 @@
 {
   "packages": {
-    "undefined": {
+    "packages/bank-system": {
       "releaseType": "node",
       "draft": false,
       "prerelease": false,
@@ -9,7 +9,7 @@
       "changelogPath": "CHANGELOG.md",
       "versioning": "default"
     },
-    "packages/bank-system": {
+    "packages/bank-system-acceptance-tests": {
       "releaseType": "node",
       "draft": false,
       "prerelease": false,

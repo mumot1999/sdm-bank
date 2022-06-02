@@ -1,5 +1,16 @@
 # Changelog
 
+## [6.0.0](https://github.com/mumot1999/sdm-bank/compare/v5.0.0...v6.0.0) (2022-06-02)
+
+
+### ⚠ BREAKING CHANGES
+
+* **mediator:** add interbank payment agency
+
+### Features
+
+* **mediator:** add interbank payment agency ([eec9b60](https://github.com/mumot1999/sdm-bank/commit/eec9b60284389e4ded0abca36cffc3dd077f4228))
+
 ## [5.0.0](https://github.com/mumot1999/sdm-bank/compare/v4.0.0...v5.0.0) (2022-06-02)
 
 

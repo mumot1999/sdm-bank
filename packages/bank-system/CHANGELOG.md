@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.1.0](https://github.com/mumot1999/sdm-bank/compare/bank-system-v2.0.1...bank-system-v2.1.0) (2022-06-02)
+
+
+### Features
+
+* add transferable interface ([8a62fc4](https://github.com/mumot1999/sdm-bank/commit/8a62fc4fd43130ca7f8684c76d444289ff1c1828))
+* transfer command gets Transferable ([aee0961](https://github.com/mumot1999/sdm-bank/commit/aee096175678f88a80aa9ed30e4cbd42251f00d5))
+
 ### [2.0.1](https://github.com/mumot1999/sdm-bank/compare/bank-system-v2.0.0...bank-system-v2.0.1) (2022-05-30)
 
 

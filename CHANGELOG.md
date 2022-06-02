@@ -1,5 +1,16 @@
 # Changelog
 
+## [5.0.0](https://github.com/mumot1999/sdm-bank/compare/v4.0.0...v5.0.0) (2022-06-02)
+
+
+### ⚠ BREAKING CHANGES
+
+* **visitor:** add balance reporter class
+
+### Features
+
+* **visitor:** add balance reporter class ([739f485](https://github.com/mumot1999/sdm-bank/commit/739f4854e6b5d388c00816269165fe5a81f91eeb))
+
 ## [4.0.0](https://github.com/mumot1999/sdm-bank/compare/v3.0.0...v4.0.0) (2022-06-02)
 
 

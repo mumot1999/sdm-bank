@@ -1,5 +1,16 @@
 # Changelog
 
+## [4.0.0](https://github.com/mumot1999/sdm-bank/compare/v3.0.0...v4.0.0) (2022-06-02)
+
+
+### ⚠ BREAKING CHANGES
+
+* **state:** add interest rate state
+
+### Features
+
+* **state:** add interest rate state ([27a9cf3](https://github.com/mumot1999/sdm-bank/commit/27a9cf392f3fae47d3467ea65727bb7650314e79))
+
 ## [3.0.0](https://github.com/mumot1999/sdm-bank/compare/v2.0.0...v3.0.0) (2022-06-02)
 
 

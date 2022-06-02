@@ -1,5 +1,51 @@
 # Changelog
 
+## [3.0.0](https://github.com/mumot1999/sdm-bank/compare/v2.0.0...v3.0.0) (2022-06-02)
+
+
+### ⚠ BREAKING CHANGES
+
+* bank-system exports new Account class
+* remove deposit and loans from bank
+* **Account:** gets id in constructor
+
+### Features
+
+* **Account:** gets id in constructor ([1748f9d](https://github.com/mumot1999/sdm-bank/commit/1748f9dcf79eff4a967af1cd822b9967cb1296ee))
+* add indetificable interface ([d0171c5](https://github.com/mumot1999/sdm-bank/commit/d0171c53948f906bb1ebd15828cd07b6d4edd1c8))
+* add packages ([d3738f1](https://github.com/mumot1999/sdm-bank/commit/d3738f175465078943884547090ae4a0cddb5833))
+* add transferable interface ([8a62fc4](https://github.com/mumot1999/sdm-bank/commit/8a62fc4fd43130ca7f8684c76d444289ff1c1828))
+* **DebitAccount:** add id getter fn ([997296b](https://github.com/mumot1999/sdm-bank/commit/997296b268be1ca7a55d7fbca65dc47fa1e7c34e))
+* edit release testing ([58673db](https://github.com/mumot1999/sdm-bank/commit/58673db12388d9501ca3890c4cc1609d66058c06))
+* new release-testing file ([cd64a24](https://github.com/mumot1999/sdm-bank/commit/cd64a246dd7a7884f985dc44244cd381fa99b4bb))
+* new release-testing file ([07e4a72](https://github.com/mumot1999/sdm-bank/commit/07e4a72e3c5f82ca7464d87faf3960411da20749))
+* release-please config ([7ebab95](https://github.com/mumot1999/sdm-bank/commit/7ebab95faae1bb01eb4022474b91cf0cca8f9d75))
+* transfer command gets Transferable ([aee0961](https://github.com/mumot1999/sdm-bank/commit/aee096175678f88a80aa9ed30e4cbd42251f00d5))
+
+
+### Bug Fixes
+
+* bank-system exports new Account class ([70ce2f4](https://github.com/mumot1999/sdm-bank/commit/70ce2f460231f9aa3eba834130b4cff25f360d3e))
+* **Bank:** create account ([fd8a230](https://github.com/mumot1999/sdm-bank/commit/fd8a23012a8712e97edc79d1ea8bbf2bc56c7847))
+* remove deposit and loans from bank ([cbe1dd5](https://github.com/mumot1999/sdm-bank/commit/cbe1dd5b6cc67f12093f1f1c780da2624f87602c))
+* **ts-jest:** allow ts errors ([bfaf089](https://github.com/mumot1999/sdm-bank/commit/bfaf0897fec9005470e81d2000e22e7e50ee05e6))
+
+
+### Tests
+
+* **transfer:** add test for transferring funds ([44a8610](https://github.com/mumot1999/sdm-bank/commit/44a8610192e9a00b8c9135535447bd5aca55de55))
+
+
+### Miscellaneous
+
+* fix acceptance test package.json ([e9e5dde](https://github.com/mumot1999/sdm-bank/commit/e9e5dde2930865d0c53687facc3216e5458ea603))
+* release master ([506af07](https://github.com/mumot1999/sdm-bank/commit/506af075432bce8357e349630be3c66712108b9c))
+* release master ([865e779](https://github.com/mumot1999/sdm-bank/commit/865e779c130881b6523713a6d7e48ff1cd027636))
+* release master ([3ab474c](https://github.com/mumot1999/sdm-bank/commit/3ab474c1c3a404e3c36bd4f3f77a7c9e0f289441))
+* release-please config ([9fde015](https://github.com/mumot1999/sdm-bank/commit/9fde0156131dd9e92d6826ad34dc49f0b2d76282))
+* release-please config ([0c1824f](https://github.com/mumot1999/sdm-bank/commit/0c1824f4ecb6e6cc48883b31a702288b7dba30d0))
+* release-please config ([b94115c](https://github.com/mumot1999/sdm-bank/commit/b94115ca89c7c4a7519d3ffae79d0e80c359839b))
+
 ## [2.0.0](https://github.com/mumot1999/sdm-bank/compare/v1.0.0...v2.0.0) (2022-05-29)
 
 

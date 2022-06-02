@@ -3,6 +3,7 @@ import { IProduct } from './IProduct';
 import { Loan } from './Loan';
 import { Operation } from './Operation';
 import { Transaction } from './Transaction';
+import {IState} from "./IState";
 
 export class Account implements IProduct {
   payOffLoan(loan: Loan, amount?: number) {
@@ -25,6 +26,7 @@ export class Account implements IProduct {
 
   private _loans: Loan[] = [];
   private _deposits: Deposit[] = [];
+  private state: IState;
 
   public get dateOfOpenning(): Date {
     return this._dateOfOpenning;
@@ -57,8 +59,28 @@ export class Account implements IProduct {
   constructor(
     protected _id: string,
     protected _balance: number,
-    protected _dateOfOpenning: Date
-  ) {}
+    protected _dateOfOpenning: Date,
+    state: IState
+  ) {
+    this.state = state;
+  }
+
+  get State(): IState {
+    return this.state;
+  }
+
+  set State(state: IState) {
+      this.state = state;
+  }
+
+  public request(): Number {
+      console.log("Interest is being called!");
+      return this.state.CalculateInterest(this);
+  }
+  public changeState(): void {
+    console.log("ChangeState is being called!");
+    this.state.ChangeState(this);
+}
 
   public receive(income: number) {
     this._balance += income;

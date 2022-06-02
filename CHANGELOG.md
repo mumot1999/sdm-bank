@@ -1,5 +1,16 @@
 # Changelog
 
+## [7.0.0](https://github.com/mumot1999/sdm-bank/compare/v6.0.0...v7.0.0) (2022-06-02)
+
+
+### ⚠ BREAKING CHANGES
+
+* **chain-of-responsibility:** add chain of responsibility payment
+
+### Features
+
+* **chain-of-responsibility:** add chain of responsibility payment ([c7d6356](https://github.com/mumot1999/sdm-bank/commit/c7d63568d7f5e78c0c68b3f0a9a4c8ee1c3ee265))
+
 ## [6.0.0](https://github.com/mumot1999/sdm-bank/compare/v5.0.0...v6.0.0) (2022-06-02)
 
 

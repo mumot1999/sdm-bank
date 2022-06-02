@@ -1,23 +1,6 @@
 {
   "packages": {
-    "packages/bank-system": {
-      "releaseType": "node",
-      "draft": false,
-      "prerelease": false,
-      "bumpMinorPreMajor": false,
-      "bumpPatchForMinorPreMajor": false,
-      "changelogPath": "CHANGELOG.md",
-      "versioning": "default",
-      "changelog-sections": "feat,fix,chore,test"
-    },
-    "packages/bank-system-acceptance-tests": {
-      "releaseType": "node",
-      "draft": false,
-      "prerelease": false,
-      "bumpMinorPreMajor": false,
-      "bumpPatchForMinorPreMajor": false,
-      "changelogPath": "CHANGELOG.md",
-      "versioning": "default"
-    }
+    "packages/bank-system": {},
+    "packages/bank-system-acceptance-tests": {}
   }
 }
